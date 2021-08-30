@@ -40,8 +40,22 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/firebase',
   ],
+  firebase: {
+    config: {
+      apiKey: "AIzaSyAx45oA29cTpi9Rjub7lVe5f30sV_GE3bk",
+      authDomain: "nuxt-heroku-todo.firebaseapp.com",
+      projectId: "nuxt-heroku-todo",
+      storageBucket: "nuxt-heroku-todo.appspot.com",
+      messagingSenderId: "404069914908",
+      appId: "1:404069914908:web:caea0ce93e6a11748fc2d9"
+    },
+    services: {
+      firestore: true,
+    }
 
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
