@@ -2,8 +2,10 @@ export default {
   FETCH_TODOS(state, payload) {
     state.todos = payload
   },
+  FETCH_TODO(state, payload) {
+    state.todo = payload
+  },
   ADD_TODO(state, payload) {
-
     state.todos = [...state.todos, payload]
   },
   DEL_TODO(state, payload) {
@@ -12,7 +14,7 @@ export default {
     state.todos = newTodos
   },
   UPDATE_TODO(state, payload) {
-    
+
     // state.todos.splice(payload.i, 1, payload)
     const newTodos = state.todos.map(todo => {
       if (todo.id === payload.id) {

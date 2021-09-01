@@ -13,8 +13,16 @@
       <span class="text-caption">Done?</span>
     </div>
     <span class="d-block">
+      {{ todo.taskName }}
+    </span>
+    <span class="d-block">
       {{ todo.task }}
     </span>
+    <div class="d-flex justify-center mt-4">
+      <v-btn :to="`task/${todo.slug}`" nuxt x-small light>
+        go to task
+      </v-btn>
+    </div>
   </v-card>
 </template>
 

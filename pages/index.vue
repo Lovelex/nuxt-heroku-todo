@@ -20,6 +20,7 @@
 <script>
 const namespaces = ["todos"];
 export default {
+  middleware: 'not-authenticated',
   data: () => ({
     namespaces : [...namespaces]
   }),
@@ -28,7 +29,6 @@ export default {
       return [...this.$store.getters[`${namespaces[0]}/getTodos`]];
     },
   },
-
   async asyncData({ store }) {
     return await store.dispatch(`${namespaces[0]}/fetchTodos`);
   },

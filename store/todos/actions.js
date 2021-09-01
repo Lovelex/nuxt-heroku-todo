@@ -4,7 +4,6 @@ export default {
     const refGet = await ref.get();
     const docs = [];
     refGet.forEach((doc) => {
-      console.log(doc.id)
       const newDoc = {
         ...doc.data(), 
         id: doc.id,
@@ -13,11 +12,19 @@ export default {
     });
     commit('FETCH_TODOS', docs)
   },
+  async fetchTodo({ commit }, payload) {
+    const ref = this.$fire.firestore.collection("todos").doc(payload);
+    const refGet = await ref.get()
+    commit('FETCH_TODO', refGet.data())
+  },
   async addTodo({ commit }, payload) {
-    const ref = this.$fire.firestore.collection("todos").doc()
+    const ref = this.$fire.firestore.collection("todos").doc(payload.slug)
+    const refGet = await ref.get()
+    if(refGet.exists) {
+      return console.log('This task, already exists.')
+    }
     const newTodo = {
       ...payload,
-      id: ref.id,
     }
     try {
       await ref.set(newTodo)

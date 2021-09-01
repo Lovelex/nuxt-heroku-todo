@@ -1,4 +1,3 @@
 export default () => ({
-  todos: [],
-  todo: null
+  user: null
 })

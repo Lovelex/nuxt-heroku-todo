@@ -6,7 +6,7 @@ export default {
     titleTemplate: '%s - nuxt-heroku-todo',
     title: 'nuxt-heroku-todo',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'pt'
     },
     meta: [
       { charset: 'utf-8' },
@@ -18,7 +18,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  ssr: true,
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -52,10 +52,18 @@ export default {
       appId: "1:404069914908:web:caea0ce93e6a11748fc2d9"
     },
     services: {
+      auth: {
+        initialize: {
+          
+          onAuthStateChangedAction: 'auth/onAuthStateChanged',
+          subscribeManually: false
+        },
+      },
       firestore: true,
-    }
+    },
 
   },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
@@ -77,7 +85,6 @@ export default {
       }
     }
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }

@@ -1,7 +1,8 @@
 <template>
   <v-app dark>
     <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
+      <span>404</span>
+      <span>{{ error.message }}</span>
     </h1>
     <h1 v-else>
       {{ otherError }}
